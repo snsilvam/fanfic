@@ -28,7 +28,9 @@ func NewMySQLDB() {
 		if err = db.Ping(); err != nil {
 			log.Fatalf("The app can't do ping: %v", err)
 		}
-
 		fmt.Println("successfully connection")
 	})
+}
+func Pool() *sql.DB {
+	return db
 }

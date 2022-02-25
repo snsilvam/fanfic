@@ -1,17 +1,17 @@
-package user
+package post
 
 import "time"
 
-//Model of user
-type ModelUser struct {
+//Model of post
+type ModelPost struct {
 	ID        uint //PK primary key
-	Name      string
-	Age       int
-	Gender    string
+	Title     string
+	Body      string
+	View      string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	//Slice of idPost
-	PostID []int //FK Foreign Key
+	UserID    int   //FK Foreign Key
+	CommentID []int //FK Foreign Key
 }
 
 //
