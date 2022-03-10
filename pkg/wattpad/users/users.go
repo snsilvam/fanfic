@@ -1,17 +1,16 @@
-package user
+package users
 
 import "time"
 
-//Model of user
-type ModelUser struct {
-	ID        uint //PK primary key
+//Model of Users
+type ModelUsers struct {
+	ID        uint //PK primary key = indice de busqueda
 	Name      string
 	Age       int
 	Gender    string
+	Nickname  string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	//Slice of idPost
-	PostID []int //FK Foreign Key
 }
 
 //

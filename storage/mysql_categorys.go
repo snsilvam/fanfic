@@ -6,13 +6,10 @@ import (
 )
 
 const (
-	//This const created the fields to table Users
-	mySQLMigrateUsers = `CREATE TABLE IF NOT EXISTS Users( 
+	//This const created the fields to table Category
+	mySQLMigrateCategorys = `CREATE TABLE IF NOT EXISTS category( 
 		id INT AUTO_INCREMENT NOT NULL PRIMARY KEY, 
-		name VARCHAR(40) NULL,
-		age INT NULL,
-		gender CHAR(8) NULL DEFAULT'another',
-		nickname VARCHAR(40) NULL,
+		name VARCHAR(30) NULL,
 		created_at TIMESTAMP NOT NULL DEFAULT now(),
 		update_at TIMESTAMP
 		
@@ -20,20 +17,20 @@ const (
 )
 
 //db *sql.DB declare one variable db, this variable we help to created the user table in data base
-type MySQLUsers struct {
+type MySQLCategorys struct {
 	db *sql.DB
 }
 
-//NewMySQLUsers is the db's constructor
-func NewMySQLUsers(db *sql.DB) *MySQLUsers {
-	return &MySQLUsers{db}
+//NewMySQLCategory is the db's constructor
+func NewMySQLCategorys(db *sql.DB) *MySQLCategorys {
+	return &MySQLCategorys{db}
 }
 
-//The function MySQLUsers's Migrate, allows create the table in mysql
-func (p *MySQLUsers) Migrate() error {
+//The function MySQLCategory's Migrate, allows create the table in mysql
+func (p *MySQLCategorys) Migrate() error {
 	//The db package's prepare method, allows create a new table into our data base
 	//What is stmt?
-	stmt, err := p.db.Prepare(mySQLMigrateUsers)
+	stmt, err := p.db.Prepare(mySQLMigrateCategorys)
 	if err != nil {
 		return err
 	}

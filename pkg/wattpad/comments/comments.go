@@ -1,16 +1,16 @@
-package comment
+package comments
 
 import "time"
 
 //Model of comment
-type ModelComment struct {
-	ID          uint //PK primary key
-	Title       string
-	Description string
-	View        string
-	CreatedAt   time.Time
-	UpdatedAt   time.Time
-	PostID      int //FK Foreign Key
+type ModelComments struct {
+	ID        uint //PK primary key = indice de busqueda
+	Comment   string
+	View      int
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	User_id   int //FK Foreign Key
+	Post_id   int //FK Foreign Key
 }
 
 //

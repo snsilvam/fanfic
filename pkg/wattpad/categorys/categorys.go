@@ -1,17 +1,12 @@
-package post
+package categorys
 
 import "time"
 
-//Model of post
-type ModelPost struct {
-	ID        uint //PK primary key
-	Title     string
-	Body      string
-	View      string
+type ModelCategorys struct {
+	ID        uint ////PK primary key = indice de busqueda
+	Category  string
 	CreatedAt time.Time
 	UpdatedAt time.Time
-	UserID    int   //FK Foreign Key
-	CommentID []int //FK Foreign Key
 }
 
 //
