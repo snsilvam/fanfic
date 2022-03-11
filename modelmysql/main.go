@@ -3,12 +3,11 @@ package main
 import (
 	"fmt"
 	//"log"
-	//"github.com/snsilvam/fanfic/pkg/wattpad/categorys"
-	//"github.com/snsilvam/fanfic/pkg/wattpad/post"
-	//"github.com/snsilvam/fanfic/pkg/wattpad/post"
-	//"github.com/snsilvam/fanfic/pkg/wattpad/comments"
-	//"github.com/snsilvam/fanfic/pkg/wattpad/posts"
-	"github.com/snsilvam/fanfic/storage"
+	//"github.com/snsilvam/fanfic/pkg/categorys"
+	//"github.com/snsilvam/fanfic/pkg/post"
+	//"github.com/snsilvam/fanfic/pkg/comments"
+	//"github.com/snsilvam/fanfic/pkg/posts"
+	"github.com/snsilvam/fanfic/modelmysql/storage"
 )
 
 func main() {
