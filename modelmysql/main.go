@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/snsilvam/fanfic/storage"
 	//"log"
 	//"github.com/snsilvam/fanfic/pkg/categorys"
 	//"github.com/snsilvam/fanfic/pkg/post"
 	//"github.com/snsilvam/fanfic/pkg/comments"
 	//"github.com/snsilvam/fanfic/pkg/posts"
-	"github.com/snsilvam/fanfic/modelmysql/storage"
 )
 
 func main() {
