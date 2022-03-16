@@ -3,6 +3,8 @@ package storage
 import (
 	"database/sql"
 	"fmt"
+
+	"github.com/snsilvam/fanfic/pkg/categorys"
 )
 
 const (
@@ -14,6 +16,7 @@ const (
 		update_at TIMESTAMP
 		
 	)`
+	mySQLCreateProduct = `INSERT INTO category(name, created_at) VALUES(?, ?)`
 )
 
 //db *sql.DB declare one variable db, this variable we help to created the user table in data base
@@ -27,10 +30,10 @@ func NewMySQLCategorys(db *sql.DB) *MySQLCategorys {
 }
 
 //The function MySQLCategory's Migrate, allows create the table in mysql
-func (p *MySQLCategorys) Migrate() error {
+func (c *MySQLCategorys) Migrate() error {
 	//The db package's prepare method, allows create a new table into our data base
 	//What is stmt?
-	stmt, err := p.db.Prepare(mySQLMigrateCategorys)
+	stmt, err := c.db.Prepare(mySQLMigrateCategorys)
 	if err != nil {
 		return err
 	}
@@ -40,5 +43,29 @@ func (p *MySQLCategorys) Migrate() error {
 		return err
 	}
 	fmt.Println("Migrate successfully")
+	return nil
+}
+
+//The function Create implement the interface category.storage
+func (c *MySQLCategorys) Create(m *categorys.ModelCategorys) error {
+	stmt, err := c.db.Prepare(mySQLCreateProduct)
+	if err != nil {
+		return err
+	}
+
+	defer stmt.Close()
+	result, err := stmt.Exec(
+		m.Name,
+		m.CreatedAt,
+	)
+	if err != nil {
+		return err
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return err
+	}
+	m.ID = uint(id)
+	fmt.Printf("Category successfuly created, with id: %d", m.ID)
 	return nil
 }
